@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     [Header("Playerの移動スピード")]
 	[SerializeField] float _moveSpeed = 5f;
 
+	[SerializeField] BirdEndManager _birdEndManager;
+
 	float _rangePosX = 8f;	// ±X座標の制限範囲
 	float _posX;			// 制限範囲内のX座標添え字
 
@@ -18,6 +20,7 @@ public class PlayerController : MonoBehaviour
 	private void Start()
 	{
 		_rb = GetComponent<Rigidbody2D>();
+		_birdEndManager = GameObject.Find("Ivent").GetComponent<BirdEndManager>();
 	}
 
 	void Update()
@@ -31,7 +34,28 @@ public class PlayerController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		//横移動(X座標の移動)
-		_rb.velocity = new Vector2(_moveSpeed * _horizontal, 0f);
+		//横移動(X座標の移動)　着地モードでY軸動かすため
+		_rb.velocity = new Vector2(_moveSpeed * _horizontal, _rb.velocity.y);
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		// ゴールの女の子に到達
+		if (collision.CompareTag("Goal"))
+		{
+			_birdEndManager.TriggerEnding("Goal");
+			return;
+		}
+
+		// 鳥に衝突した場合
+		if(collision.tag == "Bird")
+		{
+			string birdName = collision.name.Replace("Prefab(Clone)", "");
+			if (birdName != null)
+			{
+				Debug.Log(birdName);
+				_birdEndManager.TriggerEnding(birdName);
+			}
+		}
 	}
 }

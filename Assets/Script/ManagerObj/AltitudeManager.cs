@@ -7,7 +7,7 @@ public class AltitudeManager : MonoBehaviour
     GameTimeManager _gameTimeManager;
 
 	[Header("•\Ž¦‚·‚éÅ‰‚Ì‚‚³")]
-	[SerializeField] float _altitude = 10000f;
+	[SerializeField] int _altitude = 10000;
 
 	int _remaining;
 	public int Remaining => _remaining;
@@ -16,6 +16,7 @@ public class AltitudeManager : MonoBehaviour
 	void Start()
 	{
 		_gameTimeManager = GameObject.Find("Manager").GetComponent<GameTimeManager>();
+		_remaining = _altitude;
 	}
 
 	// Update is called once per frame

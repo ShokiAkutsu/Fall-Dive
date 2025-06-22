@@ -38,9 +38,9 @@ public class CloudGenerator : MonoBehaviour
 				float posX = Random.Range(-(_posLimitX), _posLimitX);
 				Cloud.transform.position = new Vector3(posX, transform.position.y, 0);
 			}
-			
+
 			//Œˆ‚ß‚ç‚ê‚½•W‚‚©‚ç‰_‚ğ¶¬‚µ‚È‚¢‚æ‚¤‚É‚·‚é
-			if(_altitudeManager.Remaining < _roundUpAltitude)
+			if (_altitudeManager.Remaining < _roundUpAltitude)
 			{
 				_isCreate = false;
 			}

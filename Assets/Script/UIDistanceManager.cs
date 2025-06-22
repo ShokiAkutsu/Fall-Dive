@@ -6,9 +6,7 @@ using UnityEngine.UI;
 
 public class UIDistanceManager : MonoBehaviour
 {
-	
 	Text _altitudeText;                 //Œ»İ‚Ì•W‚‚ğ•\¦‚·‚é
-
 	AltitudeManager _altitudeManager;   //•W‚‚Ìæ“¾
 
 	// Start is called before the first frame update
