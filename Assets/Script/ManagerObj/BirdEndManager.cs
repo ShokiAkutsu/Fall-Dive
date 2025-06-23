@@ -8,7 +8,8 @@ public class BirdEndManager : MonoBehaviour
 	[Header("UI")]
 	[SerializeField] CanvasGroup blackout;
 	[SerializeField] Text edText;
-	//[SerializeField] GameObject buttonPanel;
+	[SerializeField] GameObject buttonPanel_R;
+	[SerializeField] GameObject buttonPanel_T;
 
 	[Header("ï\é¶ê›íË")]
 	[TextArea] public string swallowText = "Ç†Ç»ÇΩÇÕÇ¬ÇŒÇﬂÇ…Ç»ÇËÇ‹ÇµÇΩÅB";
@@ -20,6 +21,13 @@ public class BirdEndManager : MonoBehaviour
 
 	bool isTyping = false;
 	bool skipTyping = false;
+
+	private void Start()
+	{
+		edText.text = "";
+		buttonPanel_R.SetActive(false);
+		buttonPanel_T.SetActive(false);
+	}
 
 	public void TriggerEnding(string kind)
 	{
@@ -51,7 +59,6 @@ public class BirdEndManager : MonoBehaviour
 
 		isTyping = true;
 		skipTyping = false;
-		edText.text = "";
 
 		for (int i = 0; i < fullText.Length; i++)
 		{
@@ -66,7 +73,8 @@ public class BirdEndManager : MonoBehaviour
 		}
 
 		isTyping = false;
-		//buttonPanel.SetActive(true); 
+		buttonPanel_R.SetActive(true);
+		buttonPanel_T.SetActive(true);
 	}
 
 	void Update()
