@@ -12,10 +12,11 @@ public class BirdEndManager : MonoBehaviour
 	[SerializeField] GameObject buttonPanel_T;
 
 	[Header("表示設定")]
-	[TextArea] public string swallowText = "あなたはつばめになりました。";
-	[TextArea] public string craneText = "あなたはつるになりました。";
-	[TextArea] public string blackKiteText = "あなたはとんびになりました。";
-	[TextArea] public string goalText = "あなたは無事、肉体に戻れました。";
+	[SerializeField, TextArea] string swallowText = "あなたはつばめになりました。";
+	[SerializeField, TextArea] string craneText = "あなたはつるになりました。";
+	[SerializeField, TextArea] string blackKiteText = "あなたはとんびになりました。";
+	[SerializeField, TextArea] string goalText = "あなたは無事、肉体に戻れました。";
+	[SerializeField, TextArea] string groundText = "あなたは、地球と融合しました。";
 
 	[SerializeField] float typeSpeed = 0.05f;
 
@@ -40,6 +41,7 @@ public class BirdEndManager : MonoBehaviour
 			case "Crane": selectedText = craneText; break;
 			case "BlackKite": selectedText = blackKiteText; break;
 			case "Goal": selectedText = goalText; break;
+			case "Ground": selectedText = groundText; break;
 			default: selectedText = "謎の存在に当たった…。"; break;
 		}
 

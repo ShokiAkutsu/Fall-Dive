@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 130661434}
   - component: {fileID: 130661433}
   - component: {fileID: 130661432}
+  - component: {fileID: 130661435}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -355,7 +356,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.14}
@@ -438,6 +439,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4302690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &130661435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130661431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20a3307c29c564344a9436ad5b2d7567, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _birdEndManager: {fileID: 259699406}
 --- !u!1 &158478312
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +464,6 @@ GameObject:
   - component: {fileID: 158478315}
   - component: {fileID: 158478314}
   - component: {fileID: 158478313}
-  - component: {fileID: 158478317}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -545,18 +558,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &158478317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158478312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6fed03b57bf1ca49b6bb4a060f68379, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &163806656
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,9 +611,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6}
+  m_Offset: {x: -0.04, y: -0.91}
   serializedVersion: 2
-  m_Radius: 0.74
+  m_Radius: 1.2
 --- !u!50 &163806659
 Rigidbody2D:
   serializedVersion: 4
@@ -681,7 +682,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 2137203051, guid: ee39046e0e9832b44b564769ab5635ed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 289b4ba6c2236a1448108b5c8c2ea427, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -702,7 +703,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 7.45, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -720,7 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 8
-  _birdEndManager: {fileID: 0}
+  _birdEndManager: {fileID: 259699406}
 --- !u!114 &163806664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -784,10 +785,11 @@ MonoBehaviour:
   edText: {fileID: 562861462}
   buttonPanel_R: {fileID: 2122139334}
   buttonPanel_T: {fileID: 1017875865}
-  swallowText: "\u79C1\u306F\u30C4\u30D0\u30E1\u306B\u8EE2\u751F\u3057\u305F\u3002\n\u4ED6\u306E\u4EF2\u9593\u305F\u3061\u304C\u79C1\u3092\u547C\u3093\u3067\u3044\u308B\u3002\n\u3053\u308C\u304B\u3089\u6545\u90F7\u3068\u306A\u308B\u5834\u6240\u3078\u98DB\u3093\u3067\u3044\u304F\u3002\n\n"
-  craneText: "\u79C1\u306F\u30C4\u30EB\u306B\u8EE2\u751F\u3057\u305F\u3002\n\u9DB4\u306F\u4E07\u5E74\u3001\u5BFF\u547D\u306F\u3044\u3064\u307E\u3067\u304B\u306A\uFF1F\n\u7126\u3089\u306A\u304F\u3066\u3082\u81EA\u7531\u306A\u751F\u304D\u65B9\u304C\u3067\u304D\u308B\u6C17\u304C\u3059\u308B\u3002"
-  blackKiteText: "\u79C1\u306F\u30C8\u30F3\u30D3\u306B\u8EE2\u751F\u3057\u305F\u3002\n\u3053\u308C\u306A\u3089\u7D20\u65E9\u304F\u79C1\u306E\u5143\u3078\u884C\u3051\u308B\n\u884C\u304B\u306A\u304D\u3083\u3002\u65E9\u304F\u2026\u55B0\u3044\u306B\u2026"
-  goalText: "\u7121\u4E8B\u3001\u79C1\u306F\u79C1\u306B\u623B\u308B\u3053\u3068\u304C\u3067\u304D\u305F\u3002\n\n"
+  swallowText: "\u79C1\u306F\u30C4\u30D0\u30E1\u306B\u8EE2\u751F\u3057\u305F\u3002\n\u307B\u304B\u306E\u4EF2\u9593\u304C\u79C1\u3092\u547C\u3093\u3067\u3044\u308B\u3002\n\u3053\u308C\u304B\u3089\u3001\u6E21\u308A\u9CE5\u3068\u3057\u3066\u65C5\u304C\u59CB\u307E\u308B\u3002"
+  craneText: "\u79C1\u306F\u30C4\u30EB\u306B\u8EE2\u751F\u3057\u305F\u3002\n\u30C4\u30EB\u306F\u4E07\u5E74\u3068\u3044\u3046\u3051\u308C\u3069\u3001\n\u4ECA\u56DE\u306F\u4F55\u5E74\u9593\u751F\u304D\u3089\u308C\u308B\u306E\u304B\u306A\uFF1F"
+  blackKiteText: "\u79C1\u306F\u30C8\u30F3\u30D3\u306B\u8EE2\u751F\u3057\u305F\u3002\n\u8A18\u61B6\u304C\u30C8\u30F3\u30D3\u306E\u672C\u80FD\u3068\u6DF7\u3056\u3063\u3066\u3044\u304F\u3002\n\u65E9\u304F\u2026\u884C\u304B\u306A\u304D\u3083...\u3002"
+  goalText: "\u79C1\u306F\u7121\u4E8B\u3001\u8089\u4F53\u306B\u623B\u308C\u305F\u3002\n\u3055\u3063\u304D\u307E\u3067\u306E\u6D6E\u904A\u611F\u304C\u306A\u304F\u306A\u308A\u3001\n\u4EBA\u751F\u306E\u91CD\u3055\u3092\u75DB\u611F\u3057\u305F\u3002"
+  groundText: "\u79C1\u304B\u3089\u5916\u308C\u3066\u3001\u5730\u4E0A\u306B\u964D\u308A\u7ACB\u3063\u305F\u3002\n\u305F\u3060\u6D6E\u904A\u3067\u304D\u305A\u3001\u3053\u306E\u307E\u307E\u5730\u5C64\u306B\u6EB6\u3051\u3066\u3044\u304F\u3002\n\u5730\u7403\u306E\u4E00\u90E8\u306B\u306A\u308C\u308B\u6C17\u304C\u3057\u305F\u3002"
   typeSpeed: 0.05
 --- !u!1 &304665763
 GameObject:
@@ -1516,13 +1518,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1768572902}
+        m_TargetAssemblyTypeName: TitleButtonIvent, Assembly-CSharp
+        m_MethodName: OnClickButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1861,6 +1863,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627383460}
   m_CullTransparentMesh: 1
+--- !u!1 &1768572901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768572904}
+  - component: {fileID: 1768572903}
+  - component: {fileID: 1768572902}
+  m_Layer: 0
+  m_Name: ButtonIvent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1768572902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768572901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82c108efd6ca24f4b9b17e4d37322c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1768572903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768572901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6fed03b57bf1ca49b6bb4a060f68379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1768572904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768572901}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.46895456, y: 1.9218788, z: -0.015110493}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2122139334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,7 +2003,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 158478317}
+      - m_Target: {fileID: 1768572903}
         m_TargetAssemblyTypeName: RetryButtonIvent, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
@@ -2007,3 +2066,4 @@ SceneRoots:
   - {fileID: 433775214}
   - {fileID: 4302690}
   - {fileID: 1351433205}
+  - {fileID: 1768572904}

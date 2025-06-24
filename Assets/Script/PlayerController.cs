@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
 	private void Start()
 	{
 		_rb = GetComponent<Rigidbody2D>();
-		_birdEndManager = GameObject.Find("Ivent").GetComponent<BirdEndManager>();
 	}
 
 	void Update()
