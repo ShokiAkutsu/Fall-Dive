@@ -23,6 +23,8 @@ public class BirdEndManager : MonoBehaviour
 	bool isTyping = false;
 	bool skipTyping = false;
 
+	[SerializeField] DataWriteManager _dataWrite;
+
 	private void Start()
 	{
 		edText.text = "";
@@ -37,11 +39,11 @@ public class BirdEndManager : MonoBehaviour
 
 		switch (kind)
 		{
-			case "Swallow": selectedText = swallowText; break;
-			case "Crane": selectedText = craneText; break;
-			case "BlackKite": selectedText = blackKiteText; break;
-			case "Goal": selectedText = goalText; break;
-			case "Ground": selectedText = groundText; break;
+			case "Swallow": selectedText = swallowText; _dataWrite.WriteFlag(0x004); break;
+			case "Crane": selectedText = craneText; _dataWrite.WriteFlag(0x002); break;
+			case "BlackKite": selectedText = blackKiteText; _dataWrite.WriteFlag(0x001); break;
+			case "Goal": selectedText = goalText; _dataWrite.WriteFlag(0x008); break;
+			case "Ground": selectedText = groundText; _dataWrite.WriteFlag(0x010); break;
 			default: selectedText = "ì‰ÇÃë∂ç›Ç…ìñÇΩÇ¡ÇΩÅcÅB"; break;
 		}
 

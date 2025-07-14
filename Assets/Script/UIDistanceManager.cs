@@ -20,6 +20,6 @@ public class UIDistanceManager : MonoBehaviour
     void Update()
     {
         int distance = _altitudeManager.Remaining;
-		_altitudeText.text = distance.ToString() + " m ";
+		_altitudeText.text = distance.ToString() + " m";
     }
 }
